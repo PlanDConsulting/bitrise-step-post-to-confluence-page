@@ -54,7 +54,7 @@ async function updateVersion(title, newVersion) {
                                 "title": `${title}`,
                                 "body": {
                                   "storage": {
-                                    "value": `<p>${buildUrl}</p>`,
+                                    "value": `<p><a href="${buildUrl}#?tab=artifacts"</a>${buildUrl}</p>`,
                                     "representation": "storage"
                                   }
                                 },
