@@ -4,9 +4,9 @@ const host = process.argv[2];
 const pageId = process.argv[3];
 const apiKey = process.argv[4];
 const email = process.argv[5];
-const link = process.argv[6];
+const buildUrl = process.argv[6];
 
-console.log(link);
+console.log(buildUrl);
 const https = require('https');
 
 async function loadCurrent() {
@@ -54,7 +54,7 @@ async function updateVersion(title, newVersion) {
                                 "title": `${title}`,
                                 "body": {
                                   "storage": {
-                                    "value": `<p>${link}</p>`,
+                                    "value": `<p>${buildUrl}</p>`,
                                     "representation": "storage"
                                   }
                                 },
