@@ -6,7 +6,6 @@ const apiKey = process.argv[4];
 const email = process.argv[5];
 const buildUrl = process.argv[6];
 
-console.log(buildUrl);
 const https = require('https');
 
 async function loadCurrent() {
@@ -48,13 +47,14 @@ async function updateVersion(title, newVersion) {
     headers: headers
   };
 
+  const content = `<p><a href='${buildUrl}#?tab=artifacts'>${buildUrl}</a></p>`;
   const data = JSON.stringify({
                                 "id": `${pageId}`,
                                 "type": "page",
                                 "title": `${title}`,
                                 "body": {
                                   "storage": {
-                                    "value": `<p><a href=\"${buildUrl}#?tab=artifacts\"</a>${buildUrl}</p>`,
+                                    "value": content,
                                     "representation": "storage"
                                   }
                                 },
