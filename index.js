@@ -4,7 +4,11 @@ const host = process.argv[2];
 const pageId = process.argv[3];
 const apiKey = process.argv[4];
 const email = process.argv[5];
+
 const buildUrl = process.argv[6];
+const appTitle = process.argv[7];
+const buildNumber = process.argv[8];
+const commitMsg = process.argv[9];
 
 const https = require('https');
 
@@ -47,7 +51,15 @@ async function updateVersion(title, newVersion) {
     headers: headers
   };
 
-  const content = `<p><a href='${buildUrl}#?tab=artifacts'>${buildUrl}</a></p>`;
+  const content = `<h3>${appTitle}</h3>
+<h4>Build #${buildNumber}</h4>
+<div>
+<p>
+${commitMsg}
+</p>
+<a href="${buildUrl}#?tab=artifacts">${buildUrl}</a>
+</div>`;
+
   const data = JSON.stringify({
                                 "id": `${pageId}`,
                                 "type": "page",
